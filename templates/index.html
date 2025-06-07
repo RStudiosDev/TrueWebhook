@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Discord Webhook Sender</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="main-wrapper">
+        <div class="left-panel">
+            <div class="form-group d-flex align-items-center mb-4">
+                <label for="webhook_url" class="me-2 mb-0">Webhook URL</label>
+                <input type="text" class="form-control flex-grow-1" id="webhook_url" placeholder="Cole a URL do webhook aqui" autocomplete="off">
+                <button class="btn btn-primary ms-2" id="sendBtn">Send</button>
+            </div>
+
+            <button class="btn btn-secondary mb-4">Add Webhook</button>
+
+            <div class="form-group mb-3">
+                <label for="message">Content <span id="charCount">0</span>/2000</label>
+                <textarea class="form-control" id="message" placeholder="Digite sua mensagem aqui..."></textarea>
+            </div>
+
+            <button class="btn btn-info mt-4 mb-3" id="addEmbedBtn"><i class="fas fa-plus"></i> Add Embed</button>
+
+            <div id="embedsContainer"></div>
+
+            <div class="form-group mb-4">
+                <label for="messageLink">Message Link (opcional)</label>
+                <div class="input-group">
+                    <input type="text" class="form-control" id="messageLink" placeholder="https://discord.com/channels/...">
+                    <button class="btn btn-secondary" type="button" id="loadMessageBtn">Load</button>
+                </div>
+                <small class="form-text text-muted mt-2 d-block">
+                    Use esta opção para carregar uma mensagem existente do Discord.
+                </small>
+            </div>
+
+            <div id="status" class="mt-3"></div>
+        </div>
+
+        <div class="right-panel">
+            <div class="preview-section">
+                <h2>Preview da Mensagem</h2>
+                <div id="messagePreview" class="message-preview"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
